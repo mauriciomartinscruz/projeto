@@ -1,0 +1,20 @@
+<ion-header-bar class="bar-dark center">
+    <!--<a class="button button-clear" href="#/t/home"><i class="icon-left ion-android-arrow-back"></i> Voltar</a>-->
+    <button class="button-clear icon icon-left ion-android-arrow-back" ng-click="goBackHistory()"> Voltar</button>
+    <h1 class="title center">{{ titulo_categoria}}</h1>
+</ion-header-bar>
+
+<ion-content class="">
+    <ion-list>
+        <ion-item style="background-image: url('{{ photo_category}}');">
+            <h2>{{ titulo_categoria}}</h2>
+        </ion-item>
+
+        <ion-item class="item-thumbnail-left" ng-repeat="content in contents" ng-click="getDescriptionProduct({{category_id}}, content.conteudo_id, content.title, content.photo, content.description)" style="">
+            <img src="{{ content.photo}}" />
+            <h3>{{ content.title}}</h3>
+            <h4>{{ content.description}}</h4> 
+        </ion-item>
+    </ion-list>
+
+</ion-content>

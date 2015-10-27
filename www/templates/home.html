@@ -1,0 +1,26 @@
+<ion-header-bar class="bar-dark text-center">
+    <h1 class="title text-center">{{ app_titulo }}</h1>
+</ion-header-bar>
+
+<ion-content class="has-tabs-top">
+    <ion-slide-box style="height: 200px" on-slide-changed="slideHasChanged($index)">
+        <ion-slide ng-repeat="slider in ls_slider" ng-click="nextSlide()" >
+            <div class="box center" style="height: 200px; background-image: url('{{slider.path}}'); background-color: blue; background-size: cover; background-position: center;"></div>
+        </ion-slide>
+    </ion-slide-box>
+        Identify
+        <p ng-if="identified">
+        <b><code>{{identified}}</code></b>
+        </p>
+        Register for Push
+        <p ng-if="token">
+        <b><code>{{token}}</code></b>
+        <b><input value="{{token}}" type="text" placeholder="Digite seu nome..."></b>
+        </p>        
+
+    <ion-list>
+        <ion-item ng-repeat="categ in ls_category" ng-click="getListProducts(categ.category_id)" style="background-image: url('{{ categ.photo }}');">
+            <h2>{{ categ.title }}</h2>
+        </ion-item>
+    </ion-list>
+</ion-content>
